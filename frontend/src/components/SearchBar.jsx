@@ -5,17 +5,17 @@ import { useLocation } from 'react-router-dom';
 
 const SearchBar = () => {
     const {search,setSearch,showSearch,setShowSearch} = useContext(ShopContext);
-    const location = useLocation();
+    const { pathname } = useLocation();
     const [visible,setVisible] = useState(false)
 
     useEffect(()=>{
-        if(location.pathname.includes('collection')) {
+        if(pathname === '/collection' || pathname === '/'){
             setVisible(true);
         }
         else{
             setVisible(false);
         }
-    },[location])
+    },[pathname])
 
   return showSearch && visible ?(
     <div className='border-t border-b bg-gray-50 text-center'>
