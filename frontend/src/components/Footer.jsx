@@ -1,7 +1,10 @@
 import React from "react";
 import { assets } from "../assets/frontend_assets/assets";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const today = new Date();
+  const year = today.getFullYear();
   return (
     <div>
       <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
@@ -16,10 +19,10 @@ const Footer = () => {
         <div>
           <p className="text-xl font-medium mb-5">COMPANY</p>
           <ul className="flex flex-col gap-1 text-gray-600">
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Delivery</li>
-            <li>Policy</li>
+            <Link to="/">Home</Link>
+            <Link to="/about">About Us</Link>
+            <Link to="/orders">Delivery</Link>
+            <Link to="/">Policy</Link>
           </ul>
         </div>
 
@@ -35,7 +38,7 @@ const Footer = () => {
       <div>
         <hr />
         <p className="py-5 text-sm text-center">
-          Copyright 2025@ react.dev - All Right Reserved.
+          {`Copyright ${year}@ react.dev - All Right Reserved.`}
         </p>
       </div>
     </div>
